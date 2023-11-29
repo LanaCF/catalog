@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>FRONT-END</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      КАТАЛОГ
+    </h1>
+
+    <div class="navigation">
+      <div class="navigation__box width-radio">
+        <p class="title">
+          Оберіть категорію товарів
+        </p>
+        <form class="form-radio" name="formRadio">
+          <label class="radioCheck">
+            <input type="radio" name="city" value="Poltava">
+            Відеокамери
+          </label>
+          <label>
+            <input type="radio" name="city" value="Kyiv">
+            Мікрофони
+          </label>
+        </form>
+      </div>
+
+      <div class="navigation__box">
+        <p class="title" id="red">
+          Оберіть бренд
+        </p>
+        <form class="form-tag" name="formTag">
+          <select name="tag">
+            <option value="start" class="start"></option>
+            <option value="div">div</option>
+            <option value="h1">h1</option>
+            <option value="h2">h2</option>
+            <option value="h3">h3</option>
+            <option value="p">p</option>
+            <option value="a">a</option>
+            <option value="img">img</option>
+          </select>
+        </form>
+      </div>
+
+      <div class="navigation__box">
+        <p class="title" id="red">
+          Оберіть модель
+        </p>
+        <form class="form-tag" name="formTag">
+          <select name="tag">
+            <option value="start" class="start"></option>
+            <option value="div">div</option>
+            <option value="h1">h1</option>
+            <option value="h2">h2</option>
+            <option value="h3">h3</option>
+            <option value="p">p</option>
+            <option value="a">a</option>
+            <option value="img">img</option>
+          </select>
+        </form>
+      </div>
+
+      <div class="navigation__box">
+        <div class="preview">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="button-box">
+      <button type="button" name="send">НАДІСЛАТИ</button>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
