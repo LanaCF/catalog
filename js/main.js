@@ -1,34 +1,45 @@
-const doc = document;
+formRadio.onchange = function(){
+    brand.removeAttribute('disabled');
+    
+    if (videoCamera.checked) {
+        model.setAttribute('disabled', '');
+        cleanerForm(brand);
+        cleanerForm(model); //////////////////
+        addProduct(arrVideoCamera);
+        listModel(arrVideoCamera);
+    }
 
-const display = doc.querySelector('.display');
+    if (microphones.checked) {
+        model.setAttribute('disabled', '');
+        cleanerForm(brand);
+        cleanerForm(model); //////////////////
+        addProduct(arrMicrophones);
+    }
+}
 
-const formTag = doc.forms.formTag;
-const tag = formTag.tag;
-const selectBtnTag = formTag.selectBtnTag;
+brand.onchange = function(){
+    const valueBrand = this.value;
 
-const formTagCreate = doc.forms.formTagCreate;
-const addNewTag = formTagCreate.addNewTag;
-const titleRedWarn = doc.getElementById('red');
-const addTagBtn = formTagCreate.addTagBtn;
-const start = doc.querySelector('.start');
+    if (valueBrand) {
+        model.removeAttribute('disabled');
+    } else {
+        model.value = '';
+        model.setAttribute('disabled', '');
+        btnSend.setAttribute('disabled', '');
+    }
 
-const formInfo = doc.forms.formInfo;
-const addText = formInfo.addText;
-const addClass = formInfo.addClass;
-const addLink = formInfo.addLink;
-const addSrc = formInfo.addSrc;
-const addTextBtn = formInfo.addTextBtn;
-const addClassBtn = formInfo.addClassBtn;
-const addLinkBtn = formInfo.addLinkBtn;
-const addSrcBtn = formInfo.addSrcBtn;
-const errorText = doc.querySelector('.note');
-const errorLink = doc.querySelector('.error-link');
-const errorSrc = doc.querySelector('.error-src');
+    
+} 
+  
+model.onchange = function(){
+    const valueModel = this.value;
 
-const formStyle = doc.forms.formStyle;
-const addStyle = formStyle.addStyle;
-const addStyleBtn = formStyle.addStyleBtn;
-
+    if (valueModel) {
+        btnSend.removeAttribute('disabled');
+    } else {
+        btnSend.setAttribute('disabled', '');
+    }
+}  
 
 
 
@@ -36,4 +47,40 @@ const addStyleBtn = formStyle.addStyleBtn;
 console.log();
 
 
+
+
+
+function addProduct(array) {
+    const optionSelectFirst = doc.createElement('option');
+    optionSelectFirst.value = '';
+    brand.append(optionSelectFirst);
+
+    for (let i = 0; i < array.length; i++) {
+        const optionSelect = doc.createElement('option');
+        optionSelect.innerHTML = array[i].brand;
+        brand.append(optionSelect);
+    }
+
+    return brand;
+}
+
+function cleanerForm() {
+    while (brand.firstChild) {
+        brand.removeChild(brand.firstChild);
+    }
+}
+
+function listModel(array) { //////////////////////////////
+    const optionSelectFirst = doc.createElement('option');
+    optionSelectFirst.value = '';
+    model.append(optionSelectFirst);
+
+    for (let i = 0; i < array[i].models.length; i++) {
+        const optionSelect = doc.createElement('option');
+        optionSelect.innerHTML = array[i].models.modelName;
+        model.append(optionSelect);
+    }
+
+    return model;
+}
 

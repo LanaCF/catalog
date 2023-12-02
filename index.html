@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>FRONT-END</title>
+  <title>Каталог</title>
 </head>
 
 <body>
@@ -21,30 +21,23 @@
         </p>
         <form class="form-radio" name="formRadio">
           <label class="radioCheck">
-            <input type="radio" name="city" value="Poltava">
+            <input type="radio" class="videocamera" name="radio">
             Відеокамери
           </label>
           <label>
-            <input type="radio" name="city" value="Kyiv">
+            <input type="radio" class="microphones" name="radio">
             Мікрофони
           </label>
         </form>
       </div>
 
       <div class="navigation__box">
-        <p class="title" id="red">
+        <p class="title">
           Оберіть бренд
         </p>
-        <form class="form-tag" name="formTag">
-          <select name="tag">
-            <option value="start" class="start"></option>
-            <option value="div">div</option>
-            <option value="h1">h1</option>
-            <option value="h2">h2</option>
-            <option value="h3">h3</option>
-            <option value="p">p</option>
-            <option value="a">a</option>
-            <option value="img">img</option>
+        <form class="form-brand" name="formBrand">
+          <select name="brand" disabled>
+            <option value="" class="start"></option>
           </select>
         </form>
       </div>
@@ -53,16 +46,9 @@
         <p class="title" id="red">
           Оберіть модель
         </p>
-        <form class="form-tag" name="formTag">
-          <select name="tag">
-            <option value="start" class="start"></option>
-            <option value="div">div</option>
-            <option value="h1">h1</option>
-            <option value="h2">h2</option>
-            <option value="h3">h3</option>
-            <option value="p">p</option>
-            <option value="a">a</option>
-            <option value="img">img</option>
+        <form class="form-model" name="forModel">
+          <select name="model" disabled>
+            <option value="" class="start"></option>
           </select>
         </form>
       </div>
@@ -75,11 +61,15 @@
     </div>
 
     <div class="button-box">
-      <button type="button" name="send">НАДІСЛАТИ</button>
+      <button type="button" class="send" name="send" disabled>НАДІСЛАТИ</button>
     </div>
   </div>
 
+  <script src="./js/arrVideoCamera.js"></script>
+  <script src="./js/arrMicrophones.js"></script>
+  <script src="./js/var.js"></script>
   <script src="./js/main.js"></script>
+
 </body>
 
 </html>
