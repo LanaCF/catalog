@@ -12,3 +12,7 @@ const model = forModel.model;
 
 const btnSend = doc.querySelector('.send');
 
+let selectedBrand = null;
+
+// const preview = doc.querySelector('.preview');
+

@@ -1,10 +1,10 @@
 formRadio.onchange = function(){
     brand.removeAttribute('disabled');
+    btnSend.setAttribute('disabled', '');
     
     if (videoCamera.checked) {
         model.setAttribute('disabled', '');
         cleanerForm(brand);
-        cleanerForm(model); //////////////////
         addProduct(arrVideoCamera);
         listModel(arrVideoCamera);
     }
@@ -12,15 +12,15 @@ formRadio.onchange = function(){
     if (microphones.checked) {
         model.setAttribute('disabled', '');
         cleanerForm(brand);
-        cleanerForm(model); //////////////////
         addProduct(arrMicrophones);
+        listModel(arrMicrophones);
     }
 }
 
 brand.onchange = function(){
-    const valueBrand = this.value;
+    selectedBrand = this.value;
 
-    if (valueBrand) {
+    if (selectedBrand) {
         model.removeAttribute('disabled');
     } else {
         model.value = '';
@@ -28,7 +28,7 @@ brand.onchange = function(){
         btnSend.setAttribute('disabled', '');
     }
 
-    
+    listModel(videoCamera.checked ? arrVideoCamera : arrMicrophones);
 } 
   
 model.onchange = function(){
@@ -40,15 +40,6 @@ model.onchange = function(){
         btnSend.setAttribute('disabled', '');
     }
 }  
-
-
-
-
-console.log();
-
-
-
-
 
 function addProduct(array) {
     const optionSelectFirst = doc.createElement('option');
@@ -64,23 +55,44 @@ function addProduct(array) {
     return brand;
 }
 
-function cleanerForm() {
-    while (brand.firstChild) {
-        brand.removeChild(brand.firstChild);
+function cleanerForm(form) {
+    while (form.firstChild) {
+        form.removeChild(form.firstChild);
     }
 }
 
-function listModel(array) { //////////////////////////////
+function listModel(array) {
+    model.innerHTML = '';
+
     const optionSelectFirst = doc.createElement('option');
     optionSelectFirst.value = '';
     model.append(optionSelectFirst);
 
-    for (let i = 0; i < array[i].models.length; i++) {
-        const optionSelect = doc.createElement('option');
-        optionSelect.innerHTML = array[i].models.modelName;
-        model.append(optionSelect);
+    if (selectedBrand) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].brand === selectedBrand) {
+                const models = array[i].models;
+
+                for (let j = 0; j < models.length; j++) {
+                    const optionSelect = doc.createElement('option');
+                    optionSelect.innerHTML = models[j].modelName;
+                    model.append(optionSelect);
+                }
+                break;
+            }
+        }
     }
 
     return model;
 }
+
+// brand.addEventListener('mouseenter', function() {
+//     let previewImage; 
+    
+//     for (let i = 0; i < arrVideoCamera.length; i++)
+//     previewImage = arrVideoCamera[i].img;
+//     preview.style.backgroundImage = previewImage;
+// });
+
+// console.log(selectedBrand);
 

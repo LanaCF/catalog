@@ -72,6 +72,12 @@ const arrMicrophones = [
                 id: 3,
                 modelName: 'Boya BY-MM1',
                 imgModel: 'img/gold_fish.jpg'
+            },
+
+            {
+                id: 4,
+                modelName: 'Boya BY-BM3051S',
+                imgModel: 'img/gold_fish.jpg'
             }
         ]
         
